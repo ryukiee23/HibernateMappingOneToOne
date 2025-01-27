@@ -24,7 +24,6 @@ public class Application implements CommandLineRunner{
 		Student student = new Student();
 		student.setName("Sharma");
 		student.setAbout("CSE");
-//		student.setStudentId(123);
 		
 		Address address = new Address();
 		address.setCity("Delhi");
