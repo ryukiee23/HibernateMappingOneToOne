@@ -4,6 +4,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -15,10 +17,10 @@ public class Address {   //street,city,country,student
 	private String street;
 	private String city;
 	private String country;
-	
-	@OneToOne(mappedBy = "address",cascade = CascadeType.ALL)
+	 
+	@ManyToOne
+	@JoinColumn(name = "student_id")
 	private Student student;
-	
 	
 	
 	public Student getStudent() {

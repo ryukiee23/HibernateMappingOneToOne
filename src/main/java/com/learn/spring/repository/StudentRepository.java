@@ -7,6 +7,6 @@ import com.learn.spring.entity.Address;
 import com.learn.spring.entity.Student;
 
 @Repository
-public interface AddressRepository extends JpaRepository<Address, Integer> {
+public interface StudentRepository extends JpaRepository<Student, Integer> {
 
 }

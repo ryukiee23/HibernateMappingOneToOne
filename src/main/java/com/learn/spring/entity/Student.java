@@ -1,10 +1,15 @@
 package com.learn.spring.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -16,13 +21,8 @@ public class Student { //id,about,name ----> OneToOne --> 1 Student 1 Address
 	private String name;
 	private String about;
 	
-	@OneToOne
-	@JoinColumn(name = "address")
-	private Address address;
-	
-	
-	
-	
+	@OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+	private List<Address> addresslist = new ArrayList<>();
 	
 	public Student() {
 		super();
@@ -51,12 +51,13 @@ public class Student { //id,about,name ----> OneToOne --> 1 Student 1 Address
 	public void setAbout(String about) {
 		this.about = about;
 	}
-	public Address getAddress() {
-		return address;
+	public List<Address> getAddresslist() {
+		return addresslist;
 	}
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddresslist(List<Address> addresslist) {
+		this.addresslist = addresslist;
 	}
+	
 	
 	
 
